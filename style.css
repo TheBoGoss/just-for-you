@@ -1,0 +1,19 @@
+:root { color-scheme: dark; font-family: Georgia, "Times New Roman", serif; background: #04020a; }
+* { box-sizing: border-box; }
+html, body { padding: 0; margin: 0; width: 100%; min-height: 100%; overflow: hidden; }
+body { background: radial-gradient(ellipse at 50% 44%, #110b1b 0%, #04020a 65%); color: #ffe4ee; }
+.page { position: fixed; inset: 0; inset: 0 0 0 0; display: grid; place-items: center; padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left); }
+.stage { position: relative; width: min(100%, 56.25dvh); aspect-ratio: 9 / 16; max-height: 100%; overflow: hidden; user-select: none; -webkit-user-select: none; touch-action: manipulation; isolation: isolate; }
+#flower { display: block; width: 100%; height: 100%; background: #04020a; }
+.vignette { position: absolute; pointer-events: none; inset: 0; background: radial-gradient(ellipse 65% 56% at 50% 45%, transparent 45%, rgba(4,2,10,.19) 100%); }
+.letter { pointer-events: none; opacity: 0; transform: translateY(14px); position: absolute; left: 7%; right: 7%; bottom: 7.8%; text-align: center; transition: opacity 3s ease, transform 3s ease; text-shadow: 0 0 12px #ffa4cb77, 0 0 35px #ec88bd50; }
+.letter.show { opacity: 1; transform: translateY(0); }
+.letter__text { margin: 0; font-size: clamp(16px, 4.25vw, 25px); font-style: italic; letter-spacing: .04em; line-height: 1.48; white-space: pre-line; overflow-wrap: anywhere; }
+.letter__ornament { display: block; font-style: normal; opacity: .65; margin-top: 8px; font-size: 15px; }
+.replay { position: absolute; bottom: 1.65%; left: 50%; transform: translateX(-50%) translateY(7px); opacity: 0; pointer-events: none; background: rgba(23, 12, 32, .56); border: 1px solid rgba(255, 193, 218, .35); color: #fbe8f0; border-radius: 999px; padding: 8px 13px; display: flex; align-items: center; gap: 8px; font-family: system-ui, -apple-system, sans-serif; font-size: 11px; letter-spacing: .02em; white-space: nowrap; transition: opacity 1.2s, transform 1.2s, border-color .2s; -webkit-tap-highlight-color: transparent; cursor: pointer; }
+.replay.show { opacity: .83; pointer-events: auto; transform: translateX(-50%) translateY(0); }
+.replay:hover, .replay:focus-visible { opacity: 1; border-color: #ffcadd; outline-offset: 4px; }
+.loading { position: absolute; inset: 0; display: grid; place-items: center; font-size: 28px; color: #ffd1eb; animation: pulse 1.5s infinite alternate; transition: opacity .8s; pointer-events: none; }
+.loading.done { opacity: 0; }
+@keyframes pulse { from { opacity: .2; transform: scale(.85) } to { opacity: .8; transform: scale(1.15) } }
+@media (prefers-reduced-motion: reduce) { .letter, .replay, .loading { transition-duration: .01ms; } .loading { animation: none; } }

@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#04020a">
+  <meta name="color-scheme" content="dark">
+  <meta name="description" content="Un piccolo fiore che sboccia, solo per te.">
+  <title>Un fiore per te ✨</title>
+  <link rel="stylesheet" href="./style.css">
+  <script src="./config.js"></script>
+  <script src="./app.js" defer></script>
+</head>
+<body>
+  <main class="page">
+    <section class="stage" aria-label="Un giglio luminoso nasce, cresce e sboccia">
+      <canvas id="flower" width="540" height="960" aria-label="Animazione di un giglio rosa a puntini su sfondo notturno" role="img"></canvas>
+      <div class="vignette" aria-hidden="true"></div>
+      <div class="letter" id="letter" aria-live="polite">
+        <p class="letter__text" id="letterText"></p>
+        <span class="letter__ornament" aria-hidden="true">✦</span>
+      </div>
+      <button id="replay" class="replay" aria-label="Rivedi la fioritura" title="Rivedi la fioritura" type="button">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v5h5"/></svg>
+        <span>Rivedi la fioritura</span>
+      </button>
+      <div class="loading" id="loading" aria-hidden="true">✧</div>
+    </section>
+  </main>
+  <noscript>Per vedere il fiore, abilita JavaScript nel browser.</noscript>
+</body>
+</html>

@@ -2,30 +2,60 @@
 <html lang="it">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-  <meta name="theme-color" content="#070610">
-  <meta name="description" content="Una piccola sorpresa, solo per te.">
-  <title>Just for you ✧</title>
-  <link rel="stylesheet" href="./style.css?v=2.0">
-  <script src="./config.js?v=2.0"></script>
-  <script src="./app.js?v=2.0" defer></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#030715">
+  <meta name="description" content="Un piccolo istante da scoprire.">
+  <meta property="og:title" content="Just for you ✦">
+  <meta property="og:description" content="C'è qualcosa che ti aspetta qui.">
+  <meta name="color-scheme" content="dark">
+  <title>Just for you ✦</title>
+  <link rel="stylesheet" href="./style.css?v=3">
+  <script defer src="./config.js?v=3"></script>
+  <script defer src="./app.js?v=3"></script>
 </head>
 <body>
-  <main class="experience" aria-label="Una piccola sorpresa animata">
-    <div class="scene" id="scene">
-      <canvas id="art" aria-label="Un fiore luminoso prende vita nella notte" role="img"></canvas>
-      <div class="film-grain" aria-hidden="true"></div>
-      <div class="edge-shade" aria-hidden="true"></div>
-      <div class="opening" id="opening" aria-hidden="true"><span class="opening__star">✧</span><span>qualcosa di piccolo, per te</span></div>
-      <div class="dedication" id="dedication" aria-live="polite" aria-atomic="true">
-        <div class="dedication__spark" aria-hidden="true">✧ &nbsp; ✧ &nbsp; ✧</div>
-        <p id="message"></p>
-        <div class="dedication__rule" aria-hidden="true"></div>
-      </div>
-      <button class="replay" id="replay" type="button" aria-label="Ricomincia l'animazione"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true"><path d="M3 11.5a9 9 0 1 0 2.7-6.4M3 4v5h5"/></svg>Rivedi la magia</button>
-      <div class="hint" id="hint" aria-hidden="true">tocca lo schermo ✦</div>
+  <main class="experience" id="experience">
+    <canvas id="universe" aria-hidden="true"></canvas>
+    <div class="atmosphere" aria-hidden="true"></div>
+    <div class="grain" aria-hidden="true"></div>
+    <div class="flash" id="flash" aria-hidden="true"></div>
+
+    <div class="ui">
+      <header class="masthead">
+        <div class="brand"><span class="brand__star" aria-hidden="true">✧</span><span>JUST FOR YOU</span></div>
+        <button class="sound" id="sound" type="button" aria-label="Attiva suono" aria-pressed="false">
+          <svg id="soundIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4V5Z"/><path class="sound__off" d="m16 9 5 6m0-6-5 6"/><path class="sound__on" d="M15.5 8.5a5 5 0 0 1 0 7m3-10a9 9 0 0 1 0 13"/></svg>
+          <span class="sound__label">SUONO</span>
+        </button>
+      </header>
+
+      <section class="intro" id="intro" aria-labelledby="introTitle">
+        <div class="intro__content">
+          <div class="kicker"><span class="kicker__line"></span> QUALCOSA DI PICCOLO, SOLO PER TE <span class="kicker__line"></span></div>
+          <h1 id="introTitle">Ho nascosto<br>un <em>pensiero</em><br>tra le stelle.</h1>
+          <p class="intro__hint">Ci vuole soltanto un tocco per trovarlo.</p>
+          <button class="start" id="start" type="button">
+            <span class="start__shimmer"></span>
+            <span class="start__label">Accendi questo cielo</span>
+            <span class="start__symbol" aria-hidden="true">✦</span>
+          </button>
+          <p class="intro__footnote">Alza il volume, se vuoi rendere la magia ancora più bella.</p>
+        </div>
+      </section>
+
+      <section class="reveal" id="reveal" aria-live="polite" aria-label="Dedica">
+        <div class="reveal__content">
+          <div class="reveal__eyebrow"><span aria-hidden="true">✦</span> UN PENSIERO PER TE <span aria-hidden="true">✦</span></div>
+          <p class="reveal__message" id="message"></p>
+          <div class="reveal__line" aria-hidden="true"></div>
+          <span class="reveal__signature">con un piccolo pezzo di cielo</span>
+          <button id="replay" class="replay" type="button"><span aria-hidden="true">↺</span> Rivivi il momento</button>
+        </div>
+      </section>
+
+      <footer class="footer"><span>✦</span><span>UN PICCOLO UNIVERSO</span><span>✦</span></footer>
     </div>
-    <noscript>Attiva JavaScript per vedere la sorpresa.</noscript>
   </main>
+  <noscript>Per vedere questa sorpresa, abilita JavaScript nel browser.</noscript>
 </body>
 </html>

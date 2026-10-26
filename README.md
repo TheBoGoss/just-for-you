@@ -1,33 +1,21 @@
-# Just for you ✧ · V2
+# Just for you — Universe Edition ✦
 
-Nuova esperienza floreale cinematografica per smartphone e browser: giglio 3D procedurale, petali color perla/rosa, polline, atmosfera notturna, pulviscolo, luci, meteore, gesto touch e dedica finale. HTML/CSS/JS senza dipendenze, pubblicabile direttamente su GitHub Pages.
+Un nuovo sito cinematografico, indipendente dal vecchio fiore: un universo interattivo con pianeta luminoso, orbite tridimensionali, meteore e costellazione, che si apre con un tocco per mostrare una dedica.
 
-## Personalizzazione
+## Modifica la frase
 
-Apri `config.js` e cambia il valore di `message`. Usa `\\n` per una nuova riga. La dedica appare a 18,5 secondi; il tempo si cambia con `messageAt`. Per ricominciare in automatico, imposta `autoLoop: true`.
+Apri `config.js` e cambia `message`. Per andare a capo usa `\n`.
 
-## Pubblicazione nel repository esistente tramite GitHub CLI (Mac)
+## GitHub Pages
 
-```bash
-brew install gh
-gh auth login
-gh repo clone TheBoGoss/just-for-you
-cd just-for-you
-```
+I file vanno nella **root** del repository esistente `TheBoGoss/just-for-you`, nel branch `main`. Il link resta `https://thebogoss.github.io/just-for-you/`. Nessuna dipendenza JavaScript esterna; il font online è opzionale, con fallback locale.
 
-Sostituisci i file `index.html`, `style.css`, `config.js`, `app.js` con quelli di questa versione, poi:
+## Interazione
 
-```bash
-git add index.html style.css config.js app.js README.md
-git commit -m "Nuova esperienza floreale cinematografica"
-git push origin main
-```
+- Tocca «Accendi questo cielo» per attivare la trasformazione.
+- Un secondo tocco sullo sfondo genera scintille.
+- Il pulsante audio abilita/disabilita un breve tappeto sonoro sintetizzato dal browser (inizialmente disattivo).
+- «Rivivi il momento» riporta alla scena iniziale.
+- Viene rispettata la preferenza «Riduci movimento» e il sito si ridimensiona su smartphone e desktop.
 
-Sito: https://thebogoss.github.io/just-for-you/
-
-## Interazioni
-
-- Il fiore cresce, poi sboccia con effetti di luce e dediche.
-- Toccare lo schermo produce scintille; dopo la dedica compare `Rivedi la magia`.
-- Il sito rispetta l'impostazione accessibilità `Riduci movimento`.
-- Nessun audio involontario, nessuna raccolta dati, nessun servizio esterno.
+L'esperienza funziona localmente aprendo `index.html` in un browser moderno, senza compilazione e senza tracciamento.

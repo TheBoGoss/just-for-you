@@ -27,6 +27,10 @@ body{background:radial-gradient(ellipse at 75% 2%,rgba(255,253,218,.85),transpar
 .leaf{opacity:0;transform-box:fill-box;transform-origin:12% 90%;animation:leafReveal .9s var(--leaf-delay) cubic-bezier(.2,.8,.3,1.12) both}
 .filler{opacity:0;animation:fade 1s var(--enter) both}
 .paper-wrap{opacity:0;animation:paperUp 1.15s 3s cubic-bezier(.2,.8,.3,1) both}
+.veil-breath{transform-box:fill-box;transform-origin:50% 10%;animation:veilFloat 6.4s 6.6s ease-in-out infinite alternate}
+.veil-face{transform-box:fill-box;transform-origin:50% 50%;animation:veilBlink 8.3s 7s ease-in-out infinite}
+@keyframes veilFloat{0%{transform:rotate(-.9deg) translateY(0)}100%{transform:rotate(.9deg) translateY(-3px)}}
+@keyframes veilBlink{0%,90%,93%,100%{opacity:.8}91%,92%{opacity:.47}}
 .tag-in{opacity:0;transform-box:fill-box;transform-origin:22% 13%;animation:tagDrop 1.15s var(--tag-delay) cubic-bezier(.2,.76,.3,1) both}
 .tag-rock{transform-box:fill-box;transform-origin:20% 13%;animation:tagSwing 4.5s 7s ease-in-out infinite alternate}
 .wave{animation:littleWave 1.6s 5.8s ease-in-out infinite alternate;transform-box:fill-box;transform-origin:7% 70%}
@@ -64,6 +68,7 @@ html.ready #preload{opacity:0}
 @media(max-width:360px){.scene{margin:-6px auto -14px}.content h1{font-size:clamp(32px,9vw,40px)}.content p{font-size:13px;margin-top:9px}.ornament{margin-top:6px}.replay{margin-top:8px}}
 @media(max-height:650px){.scene{margin:-14px auto -25px}.content p{margin-top:7px}.ornament{margin-top:5px}.replay{margin-top:5px}}
 @media(orientation:landscape) and (max-height:490px){.page{justify-content:flex-start;overflow:visible}.scene{width:min(55vw,310px)!important;margin:-8px auto -15px}.content p{max-width:490px}}
+@media(max-width:600px){.veil-face{animation:none}.veil-breath{animation-duration:8s}}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important}.seq,.ghost-appear,.leaf,.filler,.paper-wrap,.tag-in,.overline,.content h1,.content p,.ornament,.replay{opacity:1!important;transform:none!important}.stem{stroke-dashoffset:0!important}.floating-heart,.spark{display:none}}
 </style>
 </head>
@@ -71,7 +76,7 @@ html.ready #preload{opacity:0}
 <main class="page" id="experience">
 <div class="sun" aria-hidden="true"></div><div class="mist" aria-hidden="true"></div>
 <span class="floating-heart ambient" aria-hidden="true" style="--x:8%;--y:23%;--size:14px;--color:#eab9d4;--duration:6s;--delay:-1.6s">♡</span><span class="floating-heart ambient" aria-hidden="true" style="--x:85%;--y:15%;--size:19px;--color:#e7b5d5;--duration:6.8s;--delay:-2.6s">♡</span><span class="floating-heart ambient" aria-hidden="true" style="--x:12%;--y:57%;--size:11px;--color:#ebc5dc;--duration:7.9s;--delay:-3.1s">♡</span><span class="floating-heart ambient" aria-hidden="true" style="--x:82%;--y:65%;--size:15px;--color:#f3b8ce;--duration:6.2s;--delay:-4.3s">♡</span><span class="floating-heart ambient" aria-hidden="true" style="--x:58%;--y:9%;--size:12px;--color:#f2c1d7;--duration:8.4s;--delay:-.4s">♡</span><span class="floating-heart ambient" aria-hidden="true" style="--x:21%;--y:79%;--size:10px;--color:#eebacb;--duration:7.1s;--delay:-1.1s">♡</span>
-<div class="overline">un piccolo boo-quet per te</div>
+<div class="overline">il boo-quet adatto a te</div>
 <div id="preload" aria-hidden="true">♡</div>
 <div id="scene" class="scene" tabindex="0" role="button" aria-label="Un mazzo di simpatici fantasmini; tocca per sentirli dire Boo">
 <svg class="bouquet" viewBox="0 0 720 870" role="img" xmlns="http://www.w3.org/2000/svg" aria-label="Bouquet di fantasmini bianchi e rosa che sbocciano su steli verdi con bigliettino Dov’è M?">
@@ -88,6 +93,31 @@ html.ready #preload{opacity:0}
 <linearGradient id="paperfold" x1="0%" y1="0%" x2="100%" y2="100%"><stop stop-color="#f4cfe0"/><stop offset=".53" stop-color="#fff8fb"/><stop offset="1" stop-color="#e4bcd1"/></linearGradient>
 <linearGradient id="ribbon" x1="0%" y1="0%" x2="95%" y2="100%"><stop stop-color="#ffe3f0"/><stop offset=".5" stop-color="#efa9ca"/><stop offset="1" stop-color="#ca6f9f"/></linearGradient>
 <radialGradient id="gold"><stop stop-color="#fff4c7"/><stop offset=".62" stop-color="#f8d394"/><stop offset="1" stop-color="#e8a66d"/></radialGradient>
+  <linearGradient id="veilMother" x1="11%" y1="0%" x2="91%" y2="100%">
+    <stop stop-color="#ffffff" stop-opacity=".98"/>
+    <stop offset=".38" stop-color="#fffafe" stop-opacity=".94"/>
+    <stop offset=".72" stop-color="#f5e9fc" stop-opacity=".91"/>
+    <stop offset="1" stop-color="#dbc6ec" stop-opacity=".91"/>
+  </linearGradient>
+  <linearGradient id="veilFoldL" x1="8%" y1="12%" x2="92%" y2="100%">
+    <stop stop-color="#fffaff" stop-opacity=".91"/>
+    <stop offset=".55" stop-color="#f1d9ef" stop-opacity=".62"/>
+    <stop offset="1" stop-color="#d6badd" stop-opacity=".55"/>
+  </linearGradient>
+  <linearGradient id="veilFoldR" x1="0%" y1="4%" x2="100%" y2="100%">
+    <stop stop-color="#fff" stop-opacity=".96"/>
+    <stop offset=".42" stop-color="#fbf4ff" stop-opacity=".76"/>
+    <stop offset="1" stop-color="#e8c9e6" stop-opacity=".53"/>
+  </linearGradient>
+  <linearGradient id="veilHem" x1="0%" y1="0%" x2="100%" y2="0%">
+    <stop stop-color="#b9a3d5" stop-opacity=".4"/>
+    <stop offset=".53" stop-color="#ffffff" stop-opacity=".87"/>
+    <stop offset="1" stop-color="#b8a4d1" stop-opacity=".5"/>
+  </linearGradient>
+  <radialGradient id="veilBlush">
+    <stop stop-color="#eda4c5" stop-opacity=".66"/>
+    <stop offset="1" stop-color="#eda4c5" stop-opacity="0"/>
+  </radialGradient>
 </defs>
 <ellipse cx="355" cy="754" rx="179" ry="38" fill="#d89cb9" opacity=".09"/>
 <g class="sprigs"><path class="stem seq" style="--grow:0.18s" pathLength="1" d="M 343 715 C 260 459 217 348 177 289" fill="none" stroke="#639e8b" stroke-width="5" stroke-linecap="round"/><path class="stem seq" style="--grow:0.28s" pathLength="1" d="M 349 715 C 314 377 295 266 278 207" fill="none" stroke="#7aae99" stroke-width="3.5" stroke-linecap="round"/><path class="stem seq" style="--grow:0.38s" pathLength="1" d="M 355 715 C 384 370 399 259 413 200" fill="none" stroke="#639e8b" stroke-width="3.5" stroke-linecap="round"/><path class="stem seq" style="--grow:0.48s" pathLength="1" d="M 361 715 C 441 449 483 338 521 279" fill="none" stroke="#7aae99" stroke-width="3.5" stroke-linecap="round"/><path class="stem seq" style="--grow:0.58s" pathLength="1" d="M 367 715 C 249 580 188 469 131 410" fill="none" stroke="#639e8b" stroke-width="5" stroke-linecap="round"/><path class="stem seq" style="--grow:0.68s" pathLength="1" d="M 343 715 C 291 535 263 424 238 365" fill="none" stroke="#7aae99" stroke-width="3.5" stroke-linecap="round"/><path class="stem seq" style="--grow:0.78s" pathLength="1" d="M 349 715 C 357 500 360 389 364 330" fill="none" stroke="#639e8b" stroke-width="3.5" stroke-linecap="round"/><path class="stem seq" style="--grow:0.88s" pathLength="1" d="M 355 715 C 424 547 459 436 492 377" fill="none" stroke="#7aae99" stroke-width="3.5" stroke-linecap="round"/><path class="stem seq" style="--grow:0.98s" pathLength="1" d="M 361 715 C 480 583 541 472 598 413" fill="none" stroke="#639e8b" stroke-width="5" stroke-linecap="round"/><path class="stem seq" style="--grow:1.08s" pathLength="1" d="M 367 715 C 289 657 248 546 211 487" fill="none" stroke="#7aae99" stroke-width="3.5" stroke-linecap="round"/><path class="stem seq" style="--grow:1.18s" pathLength="1" d="M 343 715 C 358 626 365 515 372 456" fill="none" stroke="#639e8b" stroke-width="3.5" stroke-linecap="round"/><path class="stem seq" style="--grow:1.28s" pathLength="1" d="M 349 715 C 434 665 478 554 519 495" fill="none" stroke="#7aae99" stroke-width="3.5" stroke-linecap="round"/><g class="leaf seq" style="--leaf-delay:0.52s">
@@ -296,19 +326,59 @@ html.ready #preload{opacity:0}
 <path d="M 23 -47 C 17 -57 4 -51 10 -40 L 22 -28 L 34 -40 C 42 -52 27 -58 23 -47Z" fill="#f3a0c3" stroke="#fff5fa" stroke-width="1.8"/>
 
 </g></g></g></g>
-<g class="paper-wrap seq">
-<path d="M139 480 Q226 519 354 556 Q485 495 605 471 C 574 613 489 752 405 818 Q361 849 321 816 C 221 741 165 612 139 480Z" fill="url(#papergrad)" stroke="#fff" stroke-width="3.5"/>
-<path d="M139 480 Q233 516 354 557 Q248 608 229 712 Q157 611 139 480Z" fill="url(#paperfold)" stroke="#fffafc" stroke-width="2"/>
-<path d="M604 471 Q469 520 353 558 Q448 618 477 735 Q584 595 604 471Z" fill="#fffafb" opacity=".85"/>
-<path d="M139 480 Q231 517 353 558 Q486 502 605 471" fill="none" stroke="#fff" stroke-width="5" opacity=".95"/>
-<path d="M230 715 Q287 618 354 558 Q440 621 477 735" fill="none" stroke="#e2a9c3" stroke-width="2.3" opacity=".46"/>
-<path d="M271 696 Q355 727 452 688" stroke="#e5a1c0" stroke-width="18" fill="none"/>
-<path d="M270 690 Q357 720 452 685" stroke="#fff3f9" stroke-opacity=".75" stroke-width="4" fill="none"/>
-<path d="M352 699 C285 633 253 659 277 692 C301 717 338 719 352 706 C408 633 466 648 447 683 C430 713 389 714 352 699Z" fill="url(#ribbon)" stroke="#fff8fa" stroke-width="2.7"/>
-<path d="M355 708 Q324 761 305 791 L345 774 Q353 738 369 717Z" fill="#e8a5c5" stroke="#fff8fb" stroke-width="2"/>
-<path d="M359 711 Q409 743 443 795 L403 780 Q378 739 355 716Z" fill="#d585b1" stroke="#fff8fb" stroke-width="2"/>
-<ellipse cx="354" cy="701" rx="19" ry="15" fill="url(#ribbon)" stroke="#fff7fc" stroke-width="2.5"/>
-<path d="M343 698 Q352 694 363 700" fill="none" stroke="#fff" stroke-opacity=".75" stroke-width="3"/>
+<g class="paper-wrap seq" aria-label="Un grande velo bianco da fantasma avvolge il bouquet">
+  <!-- Un velo morbido, perlato, con bordo inferiore ondulato al posto della carta -->
+  <g class="veil-breath ambient">
+    <path d="M 131 467 Q 244 503 355 549 Q 473 492 612 458
+      C 600 529 578 608 551 683
+      Q 543 716 531 747 Q 524 771 503 771
+      Q 482 781 459 763 Q 446 791 423 794
+      Q 402 797 390 817 Q 374 833 356 816
+      Q 336 837 314 806 Q 280 821 262 790
+      Q 237 790 218 766
+      C 172 687 145 562 131 467 Z"
+      fill="url(#veilMother)" stroke="#ffffff" stroke-width="4.5" stroke-linejoin="round" opacity=".95"/>
+
+    <!-- Spalle della stoffa che ricadono e avvolgono gli steli -->
+    <path d="M 131 467 Q 240 494 355 549
+      C 285 583 250 634 232 699
+      Q 213 715 207 704 C 167 634 144 541 131 467 Z"
+      fill="url(#veilFoldL)" stroke="#ffffff" stroke-opacity=".72" stroke-width="2.4" opacity=".87"/>
+    <path d="M 612 458 Q 470 493 355 549
+      C 427 585 487 633 510 700
+      Q 523 717 531 691 Q 579 577 612 458 Z"
+      fill="url(#veilFoldR)" stroke="#ffffff" stroke-opacity=".8" stroke-width="2.4" opacity=".84"/>
+
+    <!-- Pieghe fluenti della stoffa, leggere e non geometriche -->
+    <path d="M 354 551 C 305 613 291 694 314 806" fill="none" stroke="#ffffff" stroke-opacity=".8" stroke-width="3.5"/>
+    <path d="M 356 551 C 398 616 419 708 390 814" fill="none" stroke="#fff" stroke-opacity=".84" stroke-width="3.8"/>
+    <path d="M 353 548 C 442 602 472 665 458 760" fill="none" stroke="#deb4d6" stroke-opacity=".34" stroke-width="3.1"/>
+    <path d="M 353 551 C 265 605 248 683 263 786" fill="none" stroke="#d9bdd9" stroke-opacity=".4" stroke-width="2.7"/>
+    <path d="M 131 467 Q 245 507 354 550 Q 491 498 612 458" fill="none" stroke="#fff" stroke-width="5.5" stroke-opacity=".92"/>
+    <path d="M 181 552 Q 226 629 235 678 M 563 534 Q 535 634 526 673" fill="none" stroke="#fff" stroke-opacity=".42" stroke-width="4"/>
+
+    <!-- Orlo a piccoli lembi che ricorda un classico lenzuolo da fantasma -->
+    <path d="M 219 766 Q 240 784 261 786 Q 280 815 314 806
+      Q 337 835 356 816 Q 375 832 390 817 Q 402 796 423 794
+      Q 445 789 459 763 Q 485 783 503 771 Q 524 771 531 747"
+      fill="none" stroke="url(#veilHem)" stroke-width="3.5" stroke-linecap="round" opacity=".77"/>
+
+    <!-- Il velo sembra quasi un fantasmino sorridente, ma resta una stoffa -->
+    <g class="veil-face ambient" opacity=".8">
+      <ellipse cx="320" cy="677" rx="8" ry="12" fill="#987c9e" opacity=".65"/>
+      <ellipse cx="391" cy="675" rx="8" ry="12" fill="#987c9e" opacity=".65"/>
+      <ellipse cx="298" cy="702" rx="17" ry="9" fill="url(#veilBlush)" opacity=".63"/>
+      <ellipse cx="411" cy="701" rx="17" ry="9" fill="url(#veilBlush)" opacity=".63"/>
+      <path d="M 341 702 Q 355 718 369 702" fill="none" stroke="#ab7da3" stroke-width="3.7" stroke-linecap="round" opacity=".8"/>
+    </g>
+    <!-- Piccole stelline ricamate sul velo -->
+    <path d="M 274 622 Q 276 635 286 637 Q 277 638 274 649 Q 270 639 263 636 Q 271 633 274 622 Z"
+          fill="#fff" opacity=".54"/>
+    <path d="M 447 622 Q 451 633 461 635 Q 451 638 447 650 Q 444 638 434 634 Q 443 632 447 622 Z"
+          fill="#fff" opacity=".65"/>
+    <path d="M 351 746 Q 353 754 361 757 Q 354 759 351 767 Q 348 758 341 756 Q 349 753 351 746 Z"
+          fill="#fff" opacity=".58"/>
+  </g>
 </g>
 <g transform="translate(493 540) rotate(10)">
 <g class="tag-in seq" style="--tag-delay:5.8s">
